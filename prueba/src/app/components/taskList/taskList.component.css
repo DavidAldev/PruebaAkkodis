@@ -1,20 +1,15 @@
-
-.task-list {
-  margin-top: 20px;
-}
-
 .title-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.title-container .add-task{
+.title-container .add-task {
   position: absolute;
-  left: 5px;
+  left: 15px;
 }
 
-.actions-container{
+.actions-container {
   gap: 10px;
   display: flex;
 }

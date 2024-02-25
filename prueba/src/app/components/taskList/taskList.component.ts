@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Task } from 'src/app/interfaces/task.model';
+import { MessageService } from 'primeng-lts/api';
+import { Task } from 'src/app/interfaces/task.interface';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-taskList',
   templateUrl: './taskList.component.html',
   styleUrls: ['./taskList.component.css'],
+  providers: [MessageService],
 })
 export class TaskListComponent implements OnInit {
   public tasks: Task[] = [];

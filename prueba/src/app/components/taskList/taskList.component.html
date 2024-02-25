@@ -1,52 +1,61 @@
-<div class="task-list">
-  <div class="title-container">
-    <div class="add-task">
-      <p-button label="Add new task" (click)="redirectToNewTask()"></p-button>
-    </div>
-    <h2>List of Tasks</h2>
+<div class="title-container">
+  <div class="add-task">
+    <p-button label="Add new task" (click)="redirectToNewTask()"></p-button>
   </div>
-  <div>
-    <p-table [value]="tasks" [paginator]="true" [rows]="10">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Completed</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Actions</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-task>
-        <tr>
-          <td>
-            <i class="pi pi-check" *ngIf="task.completed"></i>
-            <i class="pi pi-times" *ngIf="!task.completed"></i>
-          </td>
-          <td>{{ task.title }}</td>
-          <td>{{ task.description }}</td>
-          <td class="actions-container">
-            <button
-              *ngIf="!task.completed"
-              pButton
-              icon="pi pi-check"
-              (click)="taskService.modifyTaskStatus(task.id, true)"
-              class="p-button-success"
-            ></button>
-            <button
-              *ngIf="task.completed"
-              pButton
-              icon="pi pi-replay"
-              (click)="taskService.modifyTaskStatus(task.id, false)"
-              class="p-button-warning"
-            ></button>
-            <button
-              pButton
-              icon="pi pi-trash"
-              (click)="taskService.deleteTask(task.id)"
-              class="p-button-danger"
-            ></button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
+  <h2>List of Tasks</h2>
 </div>
+<div>
+  <p-table
+    [value]="tasks"
+    [paginator]="true"
+    [rows]="10"
+    rowHover="true"
+    scrollable="true"
+    [scrollHeight]="'calc(100vh - 179.6px)'"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Completed</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task>
+      <tr>
+        <td>{{ task.id }}.</td>
+        <td>
+          <i class="pi pi-check" *ngIf="task.completed"></i>
+          <i class="pi pi-times" *ngIf="!task.completed"></i>
+        </td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td class="actions-container">
+          <button
+            *ngIf="!task.completed"
+            pButton
+            icon="pi pi-check"
+            (click)="taskService.modifyTaskStatus(task.id, true)"
+            class="p-button-success"
+          ></button>
+          <button
+            *ngIf="task.completed"
+            pButton
+            icon="pi pi-replay"
+            (click)="taskService.modifyTaskStatus(task.id, false)"
+            class="p-button-warning"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            (click)="taskService.deleteTask(task.id)"
+            class="p-button-danger"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-toast></p-toast>

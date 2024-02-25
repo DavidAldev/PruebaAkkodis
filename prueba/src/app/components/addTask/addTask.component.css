@@ -1,0 +1,32 @@
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-container .task-list {
+  position: absolute;
+  left: 15px;
+}
+
+.add-task-form {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
