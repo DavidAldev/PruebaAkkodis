@@ -13,6 +13,11 @@
     scrollable="true"
     [scrollHeight]="'calc(100vh - 179.6px)'"
   >
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5" style="text-align: center">No tasks available</td>
+      </tr>
+    </ng-template>
     <ng-template pTemplate="header">
       <tr>
         <th>Id</th>
