@@ -6,21 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'primeng-lts/dropdown';
 import { AddTaskComponent } from './components/addTask/addTask.component';
-import { TaskItemComponent } from './components/taskItem/taskItem.component';
 import { TaskListComponent } from './components/taskList/taskList.component';
+import { ButtonModule } from 'primeng-lts/button';
+import { TableModule } from 'primeng-lts/table';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddTaskComponent,
-    TaskItemComponent,
-    TaskListComponent,
-  ],
+  declarations: [AppComponent, AddTaskComponent, TaskListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DropdownModule,
     BrowserAnimationsModule,
+    ButtonModule,
+    TableModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

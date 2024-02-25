@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Task } from 'src/app/interfaces/task.model';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-taskList',
@@ -6,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./taskList.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  constructor() {}
+  public tasks: Task[] = [];
 
-  ngOnInit() {}
+  constructor(private router: Router, public taskService: TaskService) {}
+
+  ngOnInit() {
+    this.getTasks();
+  }
+
+  public redirectToNewTask(): void {
+    this.router.navigate(['/add-task']);
+  }
+
+  private getTasks(): void {
+    this.taskService
+      .getTasks()
+      .subscribe((tasks: Task[]) => (this.tasks = tasks));
+  }
 }
